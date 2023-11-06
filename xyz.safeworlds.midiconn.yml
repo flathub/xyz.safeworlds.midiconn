@@ -1,10 +1,9 @@
 id: xyz.safeworlds.midiconn
 command: midiconn
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 cleanup:
-  - /bin/sdl2-config
   - /include
   - /lib/cmake
   - /lib/pkgconfig
@@ -12,6 +11,8 @@ cleanup:
   - /lib/*.la
   - /share/aclocal
   - /share/rtmidi
+  - /share/cmake
+  - /share/pkgconfig
 finish-args:
   - --socket=fallback-x11
   - --socket=wayland
@@ -19,20 +20,6 @@ finish-args:
   - --device=dri
   - --share=ipc
 modules:
-  # libdecor provides client window decorations under Wayland
-  - name: libdecor
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://gitlab.freedesktop.org/libdecor/libdecor
-        tag: 0.1.1
-  # SDL 2.26.x is needed to utilize libdecor
-  - name: SDL2
-    buildsystem: autotools
-    sources:
-      - type: git
-        url: https://github.com/libsdl-org/SDL
-        tag: release-2.26.2
   - name: fmt
     buildsystem: cmake-ninja
     config-opts:
@@ -52,6 +39,15 @@ modules:
       - type: git
         url: https://github.com/gabime/spdlog
         tag: v1.10.0
+  - name: nlohmann_json
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DJSON_BuildTests=OFF
+    sources:
+      - type: git
+        url: https://github.com/nlohmann/json
+        tag: v3.11.2
   - name: midiconn
     buildsystem: cmake-ninja
     config-opts:
@@ -59,4 +55,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/mfep/midiconn
-        tag: v0.2.1
+        tag: v0.2.2
