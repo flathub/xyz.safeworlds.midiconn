@@ -55,4 +55,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mfep/midiconn
-        tag: v0.2.2
+        commit: 2dbc438a077145079dd4ce6476c09613b9219317
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+        tag: v0.3.0
