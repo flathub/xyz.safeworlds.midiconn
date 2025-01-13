@@ -25,12 +25,12 @@ modules:
     config-opts:
       - -DFMT_DOC=OFF
       - -DFMT_INSTALL=ON
-      - -DFMT_TEST=OFF 
+      - -DFMT_TEST=OFF
       - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
         url: https://github.com/fmtlib/fmt
-        tag: '8.1.1'
+        tag: 8.1.1
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
@@ -55,8 +55,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mfep/midiconn
-        commit: 2dbc438a077145079dd4ce6476c09613b9219317
+        commit: 11fdb997084db3d93a43a90c193f035a373e24ff
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-        tag: v0.3.0
+        tag: v0.3.1
