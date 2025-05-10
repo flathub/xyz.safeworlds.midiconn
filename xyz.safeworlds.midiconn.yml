@@ -1,7 +1,7 @@
 id: xyz.safeworlds.midiconn
 command: midiconn
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 cleanup:
   - /bin/sdl2-config
@@ -56,8 +56,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mfep/midiconn
-        commit: 11fdb997084db3d93a43a90c193f035a373e24ff
+        commit: 0557d01db28d831fb351f20c2876c42bf9653990
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-        tag: v0.3.1
+        tag: v0.3.2
