@@ -10,15 +10,11 @@ finish-args:
   - --device=dri
   - --share=ipc
 cleanup:
-  - /bin/sdl2-config
   - /include
   - /lib/cmake
   - /lib/pkgconfig
-  - /share/aclocal
-  - /share/rtmidi
   - /share/cmake
   - /share/pkgconfig
-  - '*.la'
   - '*.a'
 modules:
   - name: spdlog
@@ -51,8 +47,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mfep/midiconn
+        tag: v0.3.4
         commit: f380b06261320bb6b68b5e4115ee979d578eb772
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-        tag: v0.3.4
